@@ -2,7 +2,6 @@ from enum import Enum
 import random
 from Stats import Stats
 
-
 class DiceVariants(Enum):
     D4=4
     D6=6
@@ -18,6 +17,7 @@ class Class(Enum):
     Fighter=2
     Rogue=3
     Cleric=4
+    Bard = 5
 
 class Race(Enum):
     Human=1
@@ -28,6 +28,8 @@ class Race(Enum):
     HalfElf=6
     HalfOrc=7
     HalfDrow=8
+    Goblin = 9
+    Orc = 10,
 
 class DiceMethods:
     def RollDice(dice:DiceVariants):
@@ -46,6 +48,8 @@ def GetHitDiceFromClass(someClass:Class) -> DiceVariants:
             return DiceVariants.D6
         case Class.Cleric:
             return DiceVariants.D8
+        case Class.Bard:
+            return DiceVariants.D6
         case _:
             return DiceVariants.D6
 
@@ -67,4 +71,11 @@ def GetStatsFromRace(someRace:Race) -> Stats:
             return Stats(2, 0, 0, -2, 0, -2)
         case Race.HalfDrow:
             return Stats(0, 2, -2, 0, 0, 0)
+        case Race.Goblin:
+            return Stats(-2, 2, -2, -2, -2, -2)
+        case Race.Orc:
+            return Stats(2, 0, 2, -2, -2, 0)
+        case _:
+            return Stats(0, 0, 0, 0, 0, 0)
+
 
