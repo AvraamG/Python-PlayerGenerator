@@ -2,7 +2,7 @@ from Character import Character
 
 engagementISOver = False
 
-
+#TODO split the allParticipants to 2 Parties instead. One for the players and 1 for the encounter party
 def GroupFight(allParticipants:list[Character]):
     print("------- Encounter -------")
     for participant in allParticipants:
@@ -24,21 +24,19 @@ def StartCombat(allParticipants:list[Character]):
        target = sorterCharacters[(i + 1) % len(sorterCharacters)]
        attacker.Attack(target)
 
-#I should probably work with lists here but for now just have 2 characters duel.
 def RollCharacterInitiatives(allCharacters:list[Character]) ->list[Character]:
-    #I ll use a list of Tuples
     initiativeResults = []
     for character in allCharacters:
         initiativeRoll = character.RollForInitiative()
         playerRoll = [character,initiativeRoll]
         initiativeResults.append(playerRoll)
 
-    #I should check and resolve ties
-    #There is something wrong here
+    #TODO resolve ties
     sorted_results = sorted(initiativeResults, key=lambda x: x[1])
-    return [name for name, _ in initiativeResults]
+    return [name for name, _ in sorted_results]
 
 def CheckIfCombatHasEnded():
+    #TODO not sure yet but probably I should have 2 opposing parties in combat. The combat should be over if 1 entire party cant participate in combat *Run, Die, Surrender?
    global engagementISOver
    engagementISOver=True
 

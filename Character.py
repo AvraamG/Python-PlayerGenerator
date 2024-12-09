@@ -4,7 +4,7 @@ from Skill import Skill
 from Stats import *
 
 #TODO Consider bringing stats here
-
+#TODO bring an Act method that selects an action (E.g Fight, Heal, Run, Surrender) *Surrender sounds like a nice concept. The winner decides the fate. Eliminate, Release, Bring into the party.
 class Character:
 
     Name:str
@@ -16,6 +16,7 @@ class Character:
     HP:int
     Skills:list[Skill]
     Initiative:int
+    IsInCombat:bool
 
     def __init__(self, newName:str,newLevel:int,newRace:Race, newClass:Class, newStats:Stats):
         self.Name:str=newName
@@ -26,8 +27,9 @@ class Character:
         self.HPDice:DiceVariants = GetHitDiceFromClass(self.Class)
         self.HP:int = self.CalculateHP()
         self.AdjustStatsFromRace()
-        #TODO implement the basic skills like Attack, Fortify,Run and maybe add some special skills from Class or Race
+        #TODO maybe add some special skills from Class or Race
         self.Initiative = 0
+        self.IsInCombat = False
 
         print(f"------- {self.Name} was created. A level: {self.Level} {self.Race.name} {self.Class.name} with stats ------- \n"
               f" STR: {self.Stats.Strength} \n"
@@ -41,6 +43,8 @@ class Character:
     def TakeDamage(self, damage):
         self.HP = self.HP - damage
         print(f"{self.Name} took {damage} points of damage. Remaining HP: {self.HP}")
+        if self.HP <= 0:
+            self.IsInCombat = False
 
     def Attack(self, target):
         damage = self.Stats.Strength/2
