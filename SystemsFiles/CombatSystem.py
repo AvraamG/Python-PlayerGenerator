@@ -1,4 +1,4 @@
-from Character.Character import Character
+from CharacterFiles.Character import Character
 
 combatHasEnded = False
 allParticipants=[]
@@ -50,7 +50,7 @@ def RollCharacterInitiatives(allCharacters: list[Character]) -> list[Character]:
     sorted_results = sorted(initiativeResults, key=lambda x: x[1], reverse=True)
     ResolveTies(sorted_results)
     # Return only the characters in the resolved order
-    #TODO do I really need the int here? I do store the Initiative value in Character already
+    #TODO do I really need the int here? I do store the Initiative value in CharacterFiles already
     return [character for character, _ in sorted_results]
 
 def ResolveTies(sorted_results):

@@ -1,4 +1,5 @@
-from Item import Item
+from CharactersFiles.Item import Item
+
 
 #Head slot
 #Necklace slot

@@ -1,11 +1,12 @@
-from Character.Player import Player
-from Character.NPC import  NPC
-from Character.Stats import Stats
-from Systems.GameMechanics import Class,Race
-from Systems.CombatSystem import GroupFight
+from CharacterFiles.Player import Player
+from CharacterFiles.NPC import  NPC
+from CharacterFiles.Stats import Stats
+from SystemsFiles.GameMechanics import Class,Race
+from SystemsFiles.CombatSystem import GroupFight
 
 def main():
-   Squee = Player("Squee",2,Race.Goblin,Class.Rogue,Stats(10,10,10,10,10,10))
+   #TODO start reading players and Encounters from Json
+   Squee = Player("Squee",2,Race.Goblin,Class.Rogue,Stats.GenerateStatsAllTen())
    Needle = Player("Needle",3,Race.Halfling,Class.Bard,Stats(10,10,10,10,10,10))
 
 
@@ -20,6 +21,7 @@ def main():
 
    playerParty.append(Needle)
    playerParty.append(Squee)
+
    opposingParty.append(GoblinRogue)
    opposingParty.append(GoblinLackey)
    opposingParty.append(GoblinBoss)

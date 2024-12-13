@@ -1,4 +1,5 @@
 #TODO I should use min max so a stat can be min 1 and max 30.
+from __future__ import annotations
 class Stats:
     Strength:int
     Dexterity:int
@@ -14,6 +15,9 @@ class Stats:
         self.Intelligence = intelligence
         self.Wisdom = wisdom
         self.Charisma = charisma
+    @classmethod
+    def GenerateStatsAllTen(cls) -> Stats:
+        return cls (10,10,10,10,10,10)
 
 #This is how you enable += operations
     def __iadd__(self, other):

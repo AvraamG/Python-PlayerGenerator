@@ -1,13 +1,13 @@
-#Thi is to resolve self referencing the Character in the PickTarget. Arguably, Pick Target could be in the Combat System
+#Thi is to resolve self referencing the CharacterFiles in the PickTarget. Arguably, Pick Target could be in the Combat System
 from __future__ import annotations
 import random
 
-from Systems import CombatSystem
-from Systems.GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
-from Items.Inventory import Inventory
+from CharacterFiles.Stats import Stats
+from SystemsFiles.GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
+from CharactersFiles.Inventory import Inventory
 
-from Skills.Skill import Skill
-from Stats import *
+
+from SkillsFiles.Skill import Skill
 
 #TODO Consider bringing stats here
 #TODO bring an Act method that selects an action (E.g Fight, Heal, Run, Surrender) *Surrender sounds like a nice concept. The winner decides the fate. Eliminate, Release, Bring into the party.
@@ -68,6 +68,7 @@ class Character:
 
     def Die(self):
         print(f"****** {self.Name} has died. ******")
+        from SystemsFiles import CombatSystem
         CombatSystem.RemoveCharacterFromCombat(self)
 
     def RollForInitiative(self):
