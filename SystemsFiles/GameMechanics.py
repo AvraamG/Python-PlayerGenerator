@@ -1,6 +1,6 @@
 from enum import Enum
 import random
-from Stats import Stats
+from CharacterFiles.Stats import Stats
 
 class DiceVariants(Enum):
     D4=4
