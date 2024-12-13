@@ -39,14 +39,18 @@ class Character:
         self.IsInCombat = False
         self.IsEnemyToParty = isEnemyToParty
 
-        print(f"------- {self.Name} was created. A level: {self.Level} {self.Race.name} {self.Class.name} with stats ------- \n"
-              f" STR: {self.Stats.Strength} \n"
-              f" DEX: {self.Stats.Dexterity} \n"
-              f" CON: {self.Stats.Constitution} \n"
-              f" INT: {self.Stats.Intelligence} \n"
-              f" WIS: {self.Stats.Wisdom} \n"
-              f" CHA: {self.Stats.Charisma} \n"
-              f" and HP:{self.HP} \n")
+
+
+    def DebugPlayerStats(self):
+        print(
+            f"------- {self.Name} was created. A level: {self.Level} {self.Race.name} {self.Class.name} with stats ------- \n"
+            f" STR: {self.Stats.Strength} \n"
+            f" DEX: {self.Stats.Dexterity} \n"
+            f" CON: {self.Stats.Constitution} \n"
+            f" INT: {self.Stats.Intelligence} \n"
+            f" WIS: {self.Stats.Wisdom} \n"
+            f" CHA: {self.Stats.Charisma} \n"
+            f" and HP:{self.HP} \n")
 
     def Attack(self, target):
         #TODO add attack Roll for Hit Miss

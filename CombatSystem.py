@@ -1,5 +1,3 @@
-import NPC
-import Player
 from Character import Character
 
 combatHasEnded = False
@@ -50,7 +48,12 @@ def RollCharacterInitiatives(allCharacters: list[Character]) -> list[Character]:
 
     # Sort by initial rolls (descending)
     sorted_results = sorted(initiativeResults, key=lambda x: x[1], reverse=True)
+    ResolveTies(sorted_results)
+    # Return only the characters in the resolved order
+    #TODO do I really need the int here? I do store the Initiative value in Character already
+    return [character for character, _ in sorted_results]
 
+def ResolveTies(sorted_results):
     # Resolve ties
     i = 0
     while i < len(sorted_results):
@@ -78,13 +81,6 @@ def RollCharacterInitiatives(allCharacters: list[Character]) -> list[Character]:
 
         # Move to the next group
         i = j
-
-    # Return only the characters in the resolved order
-    return [character for character, _ in sorted_results]
-
-
-
-
 
 def RemoveCharacterFromCombat(deadCharacter:Character):
     global allParticipants
