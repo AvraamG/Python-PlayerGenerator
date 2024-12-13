@@ -3,25 +3,25 @@ from ItemFiles.Item import Item
 
 class Bag:
     def __init__(self, max_weight: float):
-        self.items: List[Item] = []
-        self.max_weight = max_weight
+        self.BagItems: List[Item] = []
+        self.MaxCarryWeight = max_weight
 
-    def add_item(self, item: Item) -> bool:
-        if self.current_weight() + item.weight <= self.max_weight:
-            self.items.append(item)
+    def AddItem(self, item: Item) -> bool:
+        if self.CurrentWeight() + item.Weight <= self.MaxCarryWeight:
+            self.BagItems.append(item)
             return True
         else:
-            print(f"Cannot add {item.name}. Bag is too heavy!")
+            print(f"Cannot add {item.Name}. Bag is too heavy!")
             return False
 
-    def remove_item(self, item: Item) -> Optional[Item]:
-        if item in self.items:
-            self.items.remove(item)
+    def RemoveItem(self, item: Item) -> Optional[Item]:
+        if item in self.BagItems:
+            self.BagItems.remove(item)
             return item
         return None
 
-    def current_weight(self) -> float:
-        return sum(item.weight for item in self.items)
+    def CurrentWeight(self) -> float:
+        return sum(item.Weight for item in self.BagItems)
 
-    def list_items(self):
-        return self.items
+    def ListAllBagItems(self):
+        return self.BagItems
