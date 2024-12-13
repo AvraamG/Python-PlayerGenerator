@@ -4,7 +4,7 @@ import random
 
 from CharacterFiles.Stats import Stats
 from SystemsFiles.GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
-from CharactersFiles.Inventory import Inventory
+from ItemFiles.Inventory import Inventory
 
 
 from SkillsFiles.Skill import Skill
