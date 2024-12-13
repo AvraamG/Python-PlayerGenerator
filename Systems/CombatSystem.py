@@ -1,4 +1,4 @@
-from Character import Character
+from Character.Character import Character
 
 combatHasEnded = False
 allParticipants=[]

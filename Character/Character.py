@@ -2,11 +2,11 @@
 from __future__ import annotations
 import random
 
-import CombatSystem
-from GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
-from Inventory import Inventory
+from Systems import CombatSystem
+from Systems.GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
+from Items.Inventory import Inventory
 
-from Skill import Skill
+from Skills.Skill import Skill
 from Stats import *
 
 #TODO Consider bringing stats here

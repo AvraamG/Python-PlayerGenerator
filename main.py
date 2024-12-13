@@ -1,9 +1,8 @@
-import CombatSystem
-from Player import Player
-from NPC import  NPC
-from Stats import Stats
-from GameMechanics import Class,Race
-from CombatSystem import GroupFight
+from Character.Player import Player
+from Character.NPC import  NPC
+from Character.Stats import Stats
+from Systems.GameMechanics import Class,Race
+from Systems.CombatSystem import GroupFight
 
 def main():
    Squee = Player("Squee",2,Race.Goblin,Class.Rogue,Stats(10,10,10,10,10,10))
