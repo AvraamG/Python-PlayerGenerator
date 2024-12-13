@@ -11,7 +11,7 @@ class DiceVariants(Enum):
     D20=20
     D100=100
 
-#Consider making this a separate file
+#TODO consider splitting this file to more parts
 class Class(Enum):
     Barbarian=1
     Fighter=2
