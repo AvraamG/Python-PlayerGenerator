@@ -1,9 +1,10 @@
-#Thi is to resolve self referencing the Character in the PickTarget
+#Thi is to resolve self referencing the Character in the PickTarget. Arguably, Pick Target could be in the Combat System
 from __future__ import annotations
 import random
 
 import CombatSystem
 from GameMechanics import Class, GetHitDiceFromClass, Race, GetStatsFromRace, DiceVariants, CalculateModifier,DiceMethods
+from Inventory import Inventory
 
 from Skill import Skill
 from Stats import *
@@ -23,7 +24,7 @@ class Character:
     Initiative:int
     IsInCombat:bool
     IsEnemyToParty:bool
-    On_death_callbacks = []
+    Inventory:Inventory
 
     def __init__(self, newName:str,newLevel:int,newRace:Race, newClass:Class, newStats:Stats,isEnemyToParty:bool):
         self.Name:str=newName
